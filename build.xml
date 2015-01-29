@@ -1,0 +1,30 @@
+<project>
+
+    <property name="version.num" value="2.6"/>
+
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="build/classes/common"/>
+        <mkdir dir="build/classes/main"/>
+        <javac srcdir="common" destdir="build/classes"/>
+        <javac srcdir="main" destdir="build/classes"/>
+    </target>
+
+
+    <target name="jar" depends="compile">
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/wigglemouse-${version.num}.jar" basedir="build/classes">
+        <manifest>
+            <attribute name="Main-Class" value="main.WiggleMouse"/>
+        </manifest>
+        </jar>
+    </target>
+
+    <target name="run" depends="jar">
+        <java jar="build/jar/wigglemouse-${version.num}.jar" fork="true"/>
+    </target>
+
+</project>

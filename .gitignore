@@ -1,4 +1,8 @@
+# specific
 *.class
+build
+
+
 
 # https://github.com/github/gitignore/blob/master/Global/Eclipse.gitignore
 *.pydevproject

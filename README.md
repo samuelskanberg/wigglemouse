@@ -12,11 +12,6 @@ If you want to set an interval from the command line, e.g. 10 seconds:
 
     java -jar wigglemouse.jar -interval 0:0:10
 
-# License
-
-WiggleMouse is released under the GPL version 3.
-
-
 # Website
 
 Please visit [http://wigglemouse.sourceforge.net/](http://wigglemouse.sourceforge.net/)

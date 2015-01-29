@@ -2,9 +2,20 @@
 
 An app that wiggles your mouse in set intervals. Though dead simple, quite popular with more than 40 000 downloads 2009-2015.
 
+
+# Build and run
+
+To build from source with ant, type:
+
+    ant run
+
+This will compile the source files, make an executable jar file and run that.
+
+You can of course import into Eclipse and run from there as well without ant.
+
 # Usage
 
-Simply run:
+From a standalone jar file, simply run:
 
     java -jar wigglemouse.jar
 

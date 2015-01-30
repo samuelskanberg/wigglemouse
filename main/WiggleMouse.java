@@ -10,11 +10,13 @@ public class WiggleMouse {
 
 		Monitor monitor = new Monitor();
 
-		try {
-			int hours = 0;
-			int minutes = 10;
-			int seconds = 0;
+		boolean gui = true;
+		int hours = 0;
+		int minutes = 5;
+		int seconds = 0;
 
+		try {
+			
 			/* Parse arguments. The two possible arguments are:
 			 * -nogui
 			 * -interval hh:mm:ss
@@ -28,8 +30,19 @@ public class WiggleMouse {
 					seconds = Integer.parseInt(times[2]);
 
 					if (minutes > 60 || seconds > 60) {
+						// TODO: Create specific exception
 						throw new Exception();
 					}
+					
+					if (hours == 0 && minutes == 0 && seconds == 0) {
+						// TODO: Create specific exception
+						throw new Exception("The delay must be greater than zero seconds");
+					}
+				} else if (args[i].equals("-nogui")) {
+					gui = false;
+				} else {
+					// TODO: Create specific exception
+					throw new Exception("No such argument");
 				}
 			}
 			
@@ -38,17 +51,21 @@ public class WiggleMouse {
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
-			System.err.println("Usage: java -jar wigglemouse [-interval hh:mm:ss]");
+			System.err.println("Usage: java -jar wigglemouse [-nogui] [-interval hh:mm:ss]");
 			System.exit(1);
 		} 
-
 
 		/* We'll create a thread that will sleep for some seconds and
 		 * after those seconds it will wiggle the mouse 
 		 * */
 		WaitingThread waitingThread = new WaitingThread(monitor);
-		TextDialog textDialog = new TextDialog(monitor, waitingThread);
-
+		
+		if (gui) {
+			TextDialog textDialog = new TextDialog(monitor, waitingThread);	
+		} else {
+			System.out.println("Running with interval: "+hours+":"+minutes+":"+seconds);
+		}
+		
 
 		waitingThread.start();
 	}

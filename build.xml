@@ -1,6 +1,6 @@
 <project>
 
-    <property name="version.num" value="2.6"/>
+    <property name="version.num" value="2.6.1"/>
 
     <target name="clean">
         <delete dir="build"/>

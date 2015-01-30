@@ -12,7 +12,7 @@ public class WiggleMouse {
 
 		boolean gui = true;
 		int hours = 0;
-		int minutes = 10;
+		int minutes = 5;
 		int seconds = 0;
 
 		try {
@@ -62,6 +62,8 @@ public class WiggleMouse {
 		
 		if (gui) {
 			TextDialog textDialog = new TextDialog(monitor, waitingThread);	
+		} else {
+			System.out.println("Running with interval: "+hours+":"+minutes+":"+seconds);
 		}
 		
 

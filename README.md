@@ -19,6 +19,10 @@ From a standalone jar file, simply run:
 
     java -jar wigglemouse.jar
 
+If you want to run without a gui:
+
+    java -jar wigglemouse.jar -nogui
+
 If you want to set an interval from the command line, e.g. 10 seconds:
 
     java -jar wigglemouse.jar -interval 0:0:10
